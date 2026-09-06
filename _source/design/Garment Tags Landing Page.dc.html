@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#e9e9ee;font-family:Poppins,Helvetica,Arial,sans-serif;color:#1c1b3a;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#221b5b;text-decoration:none}a:hover{color:#d81f26}
+input,select,textarea,button{font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid #221b5b;outline-offset:0;border-color:#221b5b}
+h1,h2,h3,p{margin:0}
+</style>
+</helmet>
+
+<div style="display:flex;align-items:flex-start;gap:64px;padding:48px">
+
+<!-- ===================== DESKTOP ===================== -->
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6b6b80">Desktop · 1280 <a href="Before-After Map.dc.html" style="font-weight:500;letter-spacing:0;text-transform:none;color:#221b5b;text-decoration:underline;text-underline-offset:3px">Before/after map →</a></div>
+<div data-screen-label="Desktop — full page" style="width:1280px;background:#f5f5f7;box-shadow:0 8px 40px rgba(28,27,58,0.12)">
+
+<!-- STICKY HEADER -->
+<header style="position:sticky;top:0;z-index:50;background:#ffffff;border-bottom:1px solid #e6e6ec">
+  <div style="height:3px;background:linear-gradient(90deg,#221b5b 0%,#5b1f8a 30%,#d81f26 60%,#ff6a3d 80%,#0f8a7a 100%)"></div>
+  <div style="padding:0 32px;height:76px;display:flex;align-items:center;gap:32px">
+    <a href="https://www.holoflex.com/" style="display:flex;align-items:center;flex:0 0 auto">
+      <img src="assets/holoflex-logo.jpg" alt="Holoflex — experience the magic!" style="height:58px;width:auto;display:block;mix-blend-mode:multiply">
+    </a>
+    <nav style="display:flex;align-items:center;gap:22px;flex:1 1 auto;margin-left:8px">
+      <a href="https://www.holoflex.com/" style="font-size:13px;color:#6b6b80">Home</a>
+      <a href="https://www.holoflex.com/aboutus.php" style="font-size:13px;color:#6b6b80">About Us</a>
+      <a href="https://www.holoflex.com/product.php" style="font-size:13px;color:#6b6b80">Products</a>
+      <a href="https://www.holoflex.com/technology.php" style="font-size:13px;color:#6b6b80">Technology</a>
+      <a href="#" style="font-size:13px;color:#6b6b80;display:flex;align-items:center;gap:5px">Solutions <span style="font-size:9px;line-height:1">▼</span></a>
+      <a href="https://www.holoflex.com/industry-verticals.php" style="font-size:13px;color:#6b6b80">Industry Verticals</a>
+      <a href="https://www.holoflex.com/media.php" style="font-size:13px;color:#6b6b80">Media</a>
+      <a href="https://www.holoflex.com/contact.php" style="font-size:13px;color:#6b6b80">Contact Us</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:18px;flex:0 0 auto">
+      <a href="tel:+916292300439" style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#221b5b">
+        <span style="width:30px;height:30px;border-radius:50%;background:#eeedf5;display:flex;align-items:center;justify-content:center;font-size:13px">☏</span>
+        +91 62923 00439
+      </a>
+      <a href="#quote" style="background:#d81f26;color:#ffffff;font-size:14px;font-weight:600;padding:12px 22px;border-radius:4px;letter-spacing:0.02em;box-shadow:0 2px 0 #a8151b" style-hover="background:#c11a20;color:#ffffff">Get a Quote</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="quote" style="position:relative;background:#16123f;overflow:hidden">
+  <div style="position:absolute;inset:0">
+    <image-slot id="hero-bg" shape="rect" placeholder="Macro photograph — printed plastic garment tag on a hanging garment (compressed JPG, ≤200 KB)"></image-slot>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,18,63,0.96) 0%,rgba(22,18,63,0.88) 45%,rgba(22,18,63,0.55) 100%);pointer-events:none"></div>
+  <div style="position:relative;padding:56px 32px 60px;display:grid;grid-template-columns:3fr 2fr;gap:56px;align-items:center;pointer-events:none">
+    <div style="pointer-events:auto;color:#ffffff">
+      <div style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#c9c4ee;margin-bottom:22px">
+        <span style="width:28px;height:2px;background:#d81f26;display:inline-block"></span>
+        Holoflex Limited · Kolkata · Manufacturer-direct · 35+ years
+      </div>
+      <h1 style="font-family:Lora,Georgia,serif;font-weight:700;font-size:50px;line-height:1.1;margin-bottom:20px;letter-spacing:-0.01em;text-wrap:pretty;max-width:640px">Your brand deserves more than a tag.</h1>
+      <h2 style="font-size:22px;font-weight:500;line-height:1.3;color:#ffffff;margin:-6px 0 18px;letter-spacing:0">Garment Tags Manufacturer in India</h2>
+      <p style="font-size:16px;line-height:1.55;margin-bottom:28px;color:#dcd9f0;max-width:580px;text-wrap:pretty">A garment tag should do more than carry your brand name—it should enhance the product experience. Holoflex Garment Tags combine premium aesthetics, durable construction and smart functionality to give brands a cleaner, more sophisticated and efficient tagging solution.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px">
+        <span style="display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(255,255,255,0.22);border-radius:999px;font-size:13px;font-weight:500;background:rgba(255,255,255,0.06)"><span style="width:6px;height:6px;border-radius:50%;background:#ff6a3d"></span>Premium Look &amp; Feel</span>
+        <span style="display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(255,255,255,0.22);border-radius:999px;font-size:13px;font-weight:500;background:rgba(255,255,255,0.06)"><span style="width:6px;height:6px;border-radius:50%;background:#ff6a3d"></span>3-in-1 Smart Tag</span>
+        <span style="display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(255,255,255,0.22);border-radius:999px;font-size:13px;font-weight:500;background:rgba(255,255,255,0.06)"><span style="width:6px;height:6px;border-radius:50%;background:#ff6a3d"></span>Smudge-Free Variable Printing</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px">
+        <a href="#quote" style="background:#d81f26;color:#ffffff;font-size:15px;font-weight:600;padding:15px 28px;border-radius:4px;letter-spacing:0.02em;box-shadow:0 2px 0 #a8151b" style-hover="background:#c11a20;color:#ffffff">Get Samples &amp; Pricing</a>
+        <a href="https://wa.me/916292300439?text=Hello" style="color:#ffffff;font-size:15px;font-weight:500;display:flex;align-items:center;gap:8px" style-hover="color:#ffb3a6">or <span style="text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,0.4)">WhatsApp us</span></a>
+      </div>
+    </div>
+
+    <!-- ENQUIRY CARD -->
+    <div style="pointer-events:auto;background:#ffffff;border-radius:8px;padding:28px 28px 24px;box-shadow:0 24px 60px rgba(0,0,0,0.35);color:#1c1b3a">
+      <sc-if value="{{ isForm }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px">
+          <h2 style="font-size:20px;font-weight:600;letter-spacing:-0.01em">Request samples &amp; pricing</h2>
+          <span style="font-size:11px;font-weight:500;color:#d81f26;letter-spacing:0.08em;text-transform:uppercase">Free</span>
+        </div>
+        <p style="font-size:13px;color:#6b6b80;margin-bottom:18px;line-height:1.45">A Holoflex specialist will reply with samples and a quotation.</p>
+        <form style="display:flex;flex-direction:column;gap:11px" onSubmit="{{ submitForm }}">
+          <input type="text" placeholder="Name" required style="width:100%;height:46px;padding:0 14px;border:1px solid #d4d4de;border-radius:4px;font-size:14px;color:#1c1b3a;background:#fbfbfd">
+          <input type="text" placeholder="Company / Brand" required style="width:100%;height:46px;padding:0 14px;border:1px solid #d4d4de;border-radius:4px;font-size:14px;color:#1c1b3a;background:#fbfbfd">
+          <input type="tel" placeholder="Phone (+91)" required style="width:100%;height:46px;padding:0 14px;border:1px solid #d4d4de;border-radius:4px;font-size:14px;color:#1c1b3a;background:#fbfbfd">
+          <select required style="width:100%;height:46px;padding:0 12px;border:1px solid #d4d4de;border-radius:4px;font-size:14px;color:#1c1b3a;background:#fbfbfd">
+            <option value="">Product interest</option>
+            <option>Garment tags — 3-in-1 plastic tag</option>
+            <option>Security / hologram garment tags</option>
+            <option>Barcode tags and TTR ribbon supply</option>
+            <option>Other labels or tags</option>
+          </select>
+          <textarea placeholder="Message — quantity, garment type, current tag set-up" rows="3" style="width:100%;padding:12px 14px;border:1px solid #d4d4de;border-radius:4px;font-size:14px;color:#1c1b3a;background:#fbfbfd;resize:none;line-height:1.4"></textarea>
+          <button type="submit" style="width:100%;height:50px;border:0;border-radius:4px;background:#d81f26;color:#ffffff;font-size:15px;font-weight:600;letter-spacing:0.02em;cursor:pointer;box-shadow:0 2px 0 #a8151b;margin-top:4px" style-hover="background:#c11a20">Request a Quote</button>
+        </form>
+        <p style="font-size:13px;color:#221b5b;font-weight:500;margin-top:12px;text-align:center">Samples and pricing within 24 hours.</p>
+        <p style="font-size:11px;color:#8a8a9c;margin-top:6px;text-align:center">We will verify your number by OTP. No spam, no sharing of data.</p>
+      </sc-if>
+      <sc-if value="{{ isOtp }}" hint-placeholder-val="{{ false }}">
+        <div style="width:48px;height:48px;border-radius:50%;background:#eeedf5;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px">✓</div>
+        <h2 style="font-size:20px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em">Verify your phone number</h2>
+        <p style="font-size:13px;color:#6b6b80;margin-bottom:20px;line-height:1.45">We have sent a 6-digit code to <strong style="color:#1c1b3a">{{ phoneShown }}</strong>. Enter it below to confirm your enquiry.</p>
+        <form style="display:flex;flex-direction:column;gap:11px" onSubmit="{{ submitOtp }}">
+          <input type="text" inputMode="numeric" maxLength="6" placeholder="6-digit OTP" style="width:100%;height:54px;padding:0 14px;border:1px solid #d4d4de;border-radius:4px;font-size:24px;letter-spacing:0.4em;text-align:center;color:#1c1b3a;background:#fbfbfd;font-weight:600">
+          <button type="submit" style="width:100%;height:50px;border:0;border-radius:4px;background:#d81f26;color:#ffffff;font-size:15px;font-weight:600;letter-spacing:0.02em;cursor:pointer;box-shadow:0 2px 0 #a8151b" style-hover="background:#c11a20">Verify &amp; Send Enquiry</button>
+        </form>
+        <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:13px">
+          <a href="#quote" style="color:#6b6b80" onClick="{{ backToForm }}">Edit details</a>
+          <a href="#quote" style="color:#221b5b;font-weight:500">Resend code in 0:{{ resendIn }}</a>
+        </div>
+        <p style="font-size:13px;color:#221b5b;font-weight:500;margin-top:22px;text-align:center">Samples and pricing within 24 hours.</p>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section style="background:#ffffff;border-bottom:1px solid #e6e6ec">
+  <div style="padding:0 32px">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid #e6e6ec">
+      <div style="padding:26px 28px;border-right:1px solid #e6e6ec;display:flex;align-items:center;gap:16px">
+        <span style="font-family:Lora,Georgia,serif;font-size:34px;font-weight:700;color:#221b5b;line-height:1">35+</span>
+        <span style="font-size:13px;line-height:1.35;color:#3d3c58">years manufacturing<br><span style="color:#8a8a9c">Kolkata, India</span></span>
+      </div>
+      <div style="padding:26px 28px;border-right:1px solid #e6e6ec;display:flex;align-items:center;gap:16px">
+        <span style="width:40px;height:40px;border-radius:50%;border:2px solid #221b5b;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#221b5b;flex:0 0 auto">ISO</span>
+        <span style="font-size:13px;line-height:1.35;color:#3d3c58">ISO / quality certifications<br><span style="color:#8a8a9c">Certified processes</span></span>
+      </div>
+      <div style="padding:26px 28px;border-right:1px solid #e6e6ec;display:flex;align-items:center;gap:16px">
+        <span style="width:40px;height:40px;border-radius:50%;border:2px solid #221b5b;display:flex;align-items:center;justify-content:center;font-size:14px;color:#221b5b;flex:0 0 auto">◈</span>
+        <span style="font-size:13px;line-height:1.35;color:#3d3c58">ASPA / HSSMS member<br><span style="color:#8a8a9c">Industry associations</span></span>
+      </div>
+      <div style="padding:26px 28px;border-right:1px solid #e6e6ec;display:flex;align-items:center;gap:16px">
+        <span style="width:40px;height:40px;border-radius:50%;border:2px solid #221b5b;display:flex;align-items:center;justify-content:center;font-size:14px;color:#221b5b;flex:0 0 auto">⌂</span>
+        <span style="font-size:13px;line-height:1.35;color:#3d3c58">Kolkata manufacturing facility<br><span style="color:#8a8a9c">Made in India</span></span>
+      </div>
+    </div>
+    <sc-if value="{{ showLogoRow }}" hint-placeholder-val="{{ true }}">
+      <div style="padding:22px 0 26px;display:flex;align-items:center;gap:28px">
+        <span style="font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#8a8a9c;white-space:nowrap">Trusted by apparel brands [VERIFY]</span>
+        <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+          <sc-for list="{{ logoTiles }}" as="t" hint-placeholder-count="4">
+            <div style="height:52px;border:1px dashed #c9c9d4;border-radius:4px;background:repeating-linear-gradient(135deg,#f3f3f6 0 6px,#ffffff 6px 12px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,Menlo,monospace;font-size:9px;letter-spacing:0.04em;color:#8a8a9c;text-align:center;padding:0 8px">{{ t }}</div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<!-- 4. PROBLEM -->
+<section style="padding:72px 32px 64px;background:#f5f5f7">
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:56px;align-items:start">
+    <div>
+      <div style="font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#d81f26;margin-bottom:14px">The problem</div>
+      <h2 style="font-family:Lora,Georgia,serif;font-size:34px;font-weight:700;line-height:1.15;color:#221b5b;text-wrap:pretty">Four items on every garment. None of them working hard enough.</h2>
+      <p style="font-size:15px;line-height:1.6;color:#4a4964;margin-top:16px;text-wrap:pretty">Most apparel brands buy two or three board tags, a translucent barcode tag and a price label per piece. It is expensive, it clutters the design, and board tags do not survive the journey to the rack.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="background:#ffffff;border:1px solid #e6e6ec;border-radius:6px;padding:24px"><div style="font-family:Lora,Georgia,serif;font-size:22px;color:#d81f26;margin-bottom:10px">01</div><h3 style="font-size:16px;font-weight:600;margin-bottom:6px">Board tags that crease and tear</h3><p style="font-size:14px;line-height:1.5;color:#6b6b80">Paper board wrinkles, frays and looks tired after a few try-ons.</p></div>
+      <div style="background:#ffffff;border:1px solid #e6e6ec;border-radius:6px;padding:24px"><div style="font-family:Lora,Georgia,serif;font-size:22px;color:#d81f26;margin-bottom:10px">02</div><h3 style="font-size:16px;font-weight:600;margin-bottom:6px">A separate barcode tag plus a price label</h3><p style="font-size:14px;line-height:1.5;color:#6b6b80">Two extra items to buy, print, attach and reconcile on every garment.</p></div>
+      <div style="background:#ffffff;border:1px solid #e6e6ec;border-radius:6px;padding:24px"><div style="font-family:Lora,Georgia,serif;font-size:22px;color:#d81f26;margin-bottom:10px">03</div><h3 style="font-size:16px;font-weight:600;margin-bottom:6px">Print that smears in transit</h3><p style="font-size:14px;line-height:1.5;color:#6b6b80">Rubbed barcodes and prices stop scanning at the point of sale.</p></div>
+      <div style="background:#ffffff;border:1px solid #e6e6ec;border-radius:6px;padding:24px"><div style="font-family:Lora,Georgia,serif;font-size:22px;color:#d81f26;margin-bottom:10px">04</div><h3 style="font-size:16px;font-weight:600;margin-bottom:6px">Inconsistent brand presentation on the rack</h3><p style="font-size:14px;line-height:1.5;color:#6b6b80">Mixed tag stock and add-on labels dilute the finish your brand deserves.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CORE BLOCK -->
+<section id="three-in-one" style="background:#ffffff;padding:80px 32px 72px;border-top:1px solid #e6e6ec">
+  <div style="text-align:center;max-width:760px;margin:0 auto 48px">
+    <div style="font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#d81f26;margin-bottom:14px">The Holoflex 3-in-1 garment tag</div>
+    <h2 style="font-family:Lora,Georgia,serif;font-size:46px;font-weight:700;line-height:1.1;color:#221b5b;letter-spacing:-0.01em">One tag, three jobs.</h2>
+    <p style="font-size:17px;line-height:1.55;color:#4a4964;margin-top:18px;text-wrap:pretty">A single non-tearable, recyclable plastic tag replaces the clutter of board tags and labels. High-impact branding on the front; variable product and pricing data on the back; the ribbon to print it supplied by us.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:center">
+    <div style="background:#f5f5f7;border-radius:8px;padding:28px;display:flex;align-items:center;justify-content:center">
+      <img src="assets/tag-front-back.png" alt="Holoflex 3-in-1 garment tag — front branding and back variable data" style="width:100%;max-width:460px;display:block;mix-blend-mode:multiply">
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #e6e6ec;border-radius:8px;overflow:hidden">
+      <div style="padding:28px 24px;border-right:1px solid #e6e6ec"><div style="width:36px;height:36px;border-radius:4px;background:#221b5b;color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;margin-bottom:18px">1</div><h3 style="font-size:17px;font-weight:600;line-height:1.3;margin-bottom:10px">Branding printed on the front</h3><p style="font-size:14px;line-height:1.55;color:#6b6b80">Your artwork in high-resolution print with a clean, contemporary plastic finish that looks markedly more premium than board.</p></div>
+      <div style="padding:28px 24px;border-right:1px solid #e6e6ec"><div style="width:36px;height:36px;border-radius:4px;background:#221b5b;color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;margin-bottom:18px">2</div><h3 style="font-size:17px;font-weight:600;line-height:1.3;margin-bottom:10px">Barcode and price printed on the back</h3><p style="font-size:14px;line-height:1.55;color:#6b6b80">Style, colour, size, MRP and barcode printed in-house on a standard barcode printer using Thermal Transfer Ribbon (TTR).</p></div>
+      <div style="padding:28px 24px"><div style="width:36px;height:36px;border-radius:4px;background:#d81f26;color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;margin-bottom:18px">3</div><h3 style="font-size:17px;font-weight:600;line-height:1.3;margin-bottom:10px">Ribbon supplied as part of the package</h3><p style="font-size:14px;line-height:1.55;color:#6b6b80">We supply the matched TTR, so the variable print resists rubbing and passes tape tests [VERIFY] — sharp and scannable through the supply chain.</p></div>
+    </div>
+  </div>
+  <div style="margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:#f5f5f7;border-radius:6px"><span style="color:#d81f26;font-size:18px;line-height:1">◆</span><div><strong style="font-size:14px;display:block;margin-bottom:2px">Capture attention</strong><span style="font-size:13px;color:#6b6b80;line-height:1.45">Stand out in retail spaces with superior materials and finish.</span></div></div>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:#f5f5f7;border-radius:6px"><span style="color:#d81f26;font-size:18px;line-height:1">◆</span><div><strong style="font-size:14px;display:block;margin-bottom:2px">Reduce complexity</strong><span style="font-size:13px;color:#6b6b80;line-height:1.45">Replace multiple operational tags with one consolidated tag.</span></div></div>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:#f5f5f7;border-radius:6px"><span style="color:#d81f26;font-size:18px;line-height:1">◆</span><div><strong style="font-size:14px;display:block;margin-bottom:2px">Help authenticate</strong><span style="font-size:13px;color:#6b6b80;line-height:1.45">Plug into your supply chain with subtle, effective security features.</span></div></div>
+  </div>
+</section>
+
+<!-- CTA A -->
+<section style="background:#221b5b;padding:28px 32px">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:32px">
+    <div style="color:#ffffff"><div style="font-family:Lora,Georgia,serif;font-size:24px;font-weight:700;line-height:1.2">See the tag in your hand before you decide.</div><div style="font-size:14px;color:#c9c4ee;margin-top:4px">Free samples and a customised quotation within 24 hours.</div></div>
+    <div style="display:flex;align-items:center;gap:14px;flex:0 0 auto">
+      <a href="https://wa.me/916292300439?text=Hello%20Holoflex%2C%20I%20would%20like%20a%20quote%20for%20garment%20tags" style="display:flex;align-items:center;gap:8px;padding:13px 20px;border:1px solid rgba(255,255,255,0.35);border-radius:4px;color:#ffffff;font-size:14px;font-weight:500" style-hover="background:rgba(255,255,255,0.08);color:#ffffff"><span style="width:8px;height:8px;border-radius:50%;background:#25d366"></span>WhatsApp us</a>
+      <a href="#quote" style="background:#d81f26;color:#ffffff;font-size:14px;font-weight:600;padding:13px 22px;border-radius:4px;box-shadow:0 2px 0 #a8151b" style-hover="background:#c11a20;color:#ffffff">Get a Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. SECURITY -->
+<section id="security" style="background:#f5f5f7;padding:80px 32px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+    <div style="height:420px;border-radius:8px;overflow:hidden"><image-slot id="security-img" shape="rounded" radius="8" placeholder="Photo — tag close-up showing holographic / OVD strip catching light"></image-slot></div>
+    <div>
+      <div style="font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#d81f26;margin-bottom:14px">Security garment tags · Brand protection</div>
+      <h2 style="font-family:Lora,Georgia,serif;font-size:36px;font-weight:700;line-height:1.15;color:#221b5b;text-wrap:pretty">Built-in brand protection that improves the look, rather than cluttering it.</h2>
+      <p style="font-size:15px;line-height:1.65;color:#4a4964;margin-top:18px;text-wrap:pretty">Holoflex's trademark security features are incorporated into the tag design itself. Holographic and optical (OVD) elements, banknote-style printed security features and tamper-evident construction help authenticate your product and help reduce the risk of copies reaching your customers.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-top:24px">
+        <div style="display:flex;gap:10px;font-size:14px;color:#1c1b3a"><span style="color:#221b5b">—</span>Holographic and OVD elements</div>
+        <div style="display:flex;gap:10px;font-size:14px;color:#1c1b3a"><span style="color:#221b5b">—</span>Printed security features (banknote-style)</div>
+        <div style="display:flex;gap:10px;font-size:14px;color:#1c1b3a"><span style="color:#221b5b">—</span>Tamper-evident construction</div>
+        <div style="display:flex;gap:10px;font-size:14px;color:#1c1b3a"><span style="color:#221b5b">—</span>Overt and covert options</div>
+      </div>
+      <a href="#quote" style="display:inline-block;margin-top:28px;color:#221b5b;font-size:14px;font-weight:600;border-bottom:2px solid #d81f26;padding-bottom:2px">Ask about security garment tags →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 7. APPLICATIONS -->
+<section style="background:#ffffff;padding:72px 32px;border-top:1px solid #e6e6ec">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px">
+    <div><div style="font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#d81f26;margin-bottom:12px">Applications</div><h2 style="font-family:Lora,Georgia,serif;font-size:34px;font-weight:700;color:#221b5b">Created for fashion. At home well beyond it.</h2></div>
+    <p style="font-size:14px;color:#6b6b80;max-width:360px;line-height:1.5">The same tag construction suits any product that hangs, ships and gets handled.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+    <sc-for list="{{ applications }}" as="a" hint-placeholder-count="6">
+      <div style="border:1px solid #e6e6ec;border-radius:8px;overflow:hidden;background:#ffffff">
+        <div style="height:200px"><image-slot id="{{ a.id }}" shape="rect" placeholder="{{ a.placeholder }}"></image-slot></div>
+        <div style="padding:16px 18px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:15px;font-weight:600">{{ a.title }}</span><span style="font-size:12px;color:#8a8a9c">{{ a.note }}</span></div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- 8. WHY HOLOFLEX -->
+<section style="background:#f5f5f7;padding:72px 32px">
+  <div style="text-align:center;margin-bottom:36px"><div style="font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#d81f26;margin-bottom:12px">Why Holoflex</div><h2 style="font-family:Lora,Georgia,serif;font-size:34px;font-weight:700;color:#221b5b">A manufacturer, not a reseller.</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+    <sc-for list="{{ whyItems }}" as="w" hint-placeholder-count="8">
+      <div style="background:#ffffff;border:1px solid #e6e6ec;border-radius:6px;padding:22px 22px 20px"><div style="width:28px;height:2px;background:#d81f26;margin-bottom:16px"></div><h3 style="font-size:16px;font-weight:600;margin-bottom:6px">{{ w.title }}</h3><p style="font-size:13px;line-height:1.5;color:#6b6b80">{{ w.body }}</p></div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- CTA B -->
+<section style="background:#ffffff;border-top:1px solid #e6e6ec;border-bottom:1px solid #e6e6ec;padding:28px 32px">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:32px">
+    <div><div style="font-family:Lora,Georgia,serif;font-size:24px;font-weight:700;color:#221b5b;line-height:1.2">Sourcing for Kolkata, Delhi, Mumbai, Chennai or Hyderabad?</div><div style="font-size:14px;color:#6b6b80;margin-top:4px">We ship tags and ribbon pan-India.</div></div>
+    <div style="display:flex;align-items:center;gap:14px;flex:0 0 auto">
+      <a href="tel:+916292300439" style="display:flex;align-items:center;gap:8px;padding:13px 20px;border:1px solid #d4d4de;border-radius:4px;color:#221b5b;font-size:14px;font-weight:600">☏ +91 62923 00439</a>
+      <a href="#quote" style="background:#d81f26;color:#ffffff;font-size:14px;font-weight:600;padding:13px 22px;border-radius:4px;box-shadow:0 2px 0 #a8151b" style-hover="background:#c11a20;color:#ffffff">Get a Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FAQ -->
+<section style="background:#f5f5f7;padding:72px 32px">
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:56px;align-items:start">
+    <div><div style="font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#d81f26;margin-bottom:12px">FAQ</div><h2 style="font-family:Lora,Georgia,serif;font-size:34px;font-weight:700;color:#221b5b;line-height:1.15">Frequently asked questions</h2><p style="font-size:14px;color:#6b6b80;margin-top:14px;line-height:1.5">Anything else? Call <a href="tel:+916292300439" style="font-weight:600">+91 62923 00439</a> or email <a href="mailto:kolkata@holoflex.com" style="font-weight:600">kolkata@holoflex.com</a>.</p></div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+        <div style="background:#ffffff;border:1px solid #e6e6ec;border-radius:6px;overflow:hidden">
+          <button onClick="{{ f.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 22px;background:transparent;border:0;cursor:pointer;text-align:left;font-size:16px;font-weight:600;color:#1c1b3a">{{ f.q }}<span style="width:26px;height:26px;border-radius:50%;background:#eeedf5;display:flex;align-items:center;justify-content:center;font-size:16px;color:#221b5b;flex:0 0 auto">{{ f.icon }}</span></button>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="padding:0 22px 20px;font-size:14px;line-height:1.6;color:#4a4964">{{ f.a }}</p></sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- 10. CLOSING CTA -->
+<section style="background:#16123f;padding:72px 32px;color:#ffffff">
+  <div style="display:grid;grid-template-columns:3fr 2fr;gap:56px;align-items:center">
+    <div>
+      <h2 style="font-family:Lora,Georgia,serif;font-size:40px;font-weight:700;line-height:1.12;text-wrap:pretty">Ready to replace three tags with one?</h2>
+      <p style="font-size:16px;line-height:1.55;color:#c9c4ee;margin-top:18px;max-width:520px">Tell us your garment type, current tag set-up and monthly volume. We will send samples and a customised quotation within 24 hours.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:28px;font-size:15px">
+        <a href="tel:+916292300439" style="color:#ffffff;display:flex;gap:12px"><span style="color:#ff6a3d">☏</span>+91 62923 00439 <span style="color:#8f89c4">· 033 2400 7810</span></a>
+        <a href="https://wa.me/916292300439?text=Hello%20Holoflex%2C%20I%20would%20like%20a%20quote%20for%20garment%20tags" style="color:#ffffff;display:flex;gap:12px"><span style="color:#25d366">●</span>WhatsApp +91 62923 00439</a>
+        <a href="mailto:kolkata@holoflex.com" style="color:#ffffff;display:flex;gap:12px"><span style="color:#ff6a3d">✉</span>kolkata@holoflex.com</a>
+      </div>
+    </div>
+    <div style="background:#ffffff;border-radius:8px;padding:28px;color:#1c1b3a">
+      <h3 style="font-size:20px;font-weight:600;margin-bottom:16px">Request samples &amp; pricing</h3>
+      <form style="display:flex;flex-direction:column;gap:11px" onSubmit="{{ submitForm }}">
+        <input type="text" placeholder="Name" required style="width:100%;height:46px;padding:0 14px;border:1px solid #d4d4de;border-radius:4px;font-size:14px;background:#fbfbfd">
+        <input type="text" placeholder="Company / Brand" required style="width:100%;height:46px;padding:0 14px;border:1px solid #d4d4de;border-radius:4px;font-size:14px;background:#fbfbfd">
+        <input type="tel" placeholder="Phone (+91)" required style="width:100%;height:46px;padding:0 14px;border:1px solid #d4d4de;border-radius:4px;font-size:14px;background:#fbfbfd">
+        <select required style="width:100%;height:46px;padding:0 12px;border:1px solid #d4d4de;border-radius:4px;font-size:14px;background:#fbfbfd"><option value="">Product interest</option><option>Garment tags — 3-in-1 plastic tag</option><option>Security / hologram garment tags</option><option>Barcode tags and TTR ribbon supply</option><option>Other labels or tags</option></select>
+        <textarea placeholder="Message" rows="3" style="width:100%;padding:12px 14px;border:1px solid #d4d4de;border-radius:4px;font-size:14px;background:#fbfbfd;resize:none"></textarea>
+        <button type="submit" style="width:100%;height:50px;border:0;border-radius:4px;background:#d81f26;color:#ffffff;font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 2px 0 #a8151b" style-hover="background:#c11a20">Request a Quote</button>
+      </form>
+      <p style="font-size:13px;color:#221b5b;font-weight:500;margin-top:12px;text-align:center">Samples and pricing within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FOOTER -->
+<footer style="background:#0f0c2e;color:#c9c4ee;padding:56px 32px 28px">
+  <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr 1.6fr 1fr;gap:40px">
+    <div><img src="assets/holoflex-logo.jpg" alt="Holoflex" style="height:64px;border-radius:4px;display:block;margin-bottom:16px"><p style="font-size:13px;line-height:1.55">Holoflex Limited — garment tags, security labels and holograms, manufactured in Kolkata for 35+ years.</p></div>
+    <div><h3 style="font-size:13px;font-weight:600;color:#ffffff;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px">Quick Links</h3><div style="display:flex;flex-direction:column;gap:9px;font-size:14px"><a href="https://www.holoflex.com/" style="color:#c9c4ee">Home</a><a href="https://www.holoflex.com/aboutus.php" style="color:#c9c4ee">About Us</a><a href="https://www.holoflex.com/product.php" style="color:#c9c4ee">Products</a><a href="https://www.holoflex.com/technology.php" style="color:#c9c4ee">Technology</a><a href="https://www.holoflex.com/industry-verticals.php" style="color:#c9c4ee">Industry Verticals</a><a href="https://www.holoflex.com/media.php" style="color:#c9c4ee">Media</a><a href="https://www.holoflex.com/contact.php" style="color:#c9c4ee">Contact Us</a></div></div>
+    <div><h3 style="font-size:13px;font-weight:600;color:#ffffff;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;visibility:hidden">·</h3><div style="display:flex;flex-direction:column;gap:9px;font-size:14px"><a href="https://www.holoflex.com/blog.php" style="color:#c9c4ee">Blog</a><a href="https://www.holoflex.com/lets-connect.php" style="color:#c9c4ee">Let's Connect</a><a href="https://www.holoflex.com/careers.php" style="color:#c9c4ee">Careers</a><a href="https://www.holoflex.com/disclaimer.php" style="color:#c9c4ee">Disclaimer</a><a href="https://www.holoflex.com/privacy-policy.php" style="color:#c9c4ee">Privacy Policy</a><a href="https://www.holoflex.com/terms-conditions.php" style="color:#c9c4ee">Terms &amp; Conditions</a></div></div>
+    <div><h3 style="font-size:13px;font-weight:600;color:#ffffff;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px">Contact Details</h3><div style="font-size:13px;line-height:1.6"><strong style="color:#ffffff;display:block">Corporate Office</strong>92 C/1, Sahapur, Block J, New Alipore, Kolkata 700053, West Bengal, India.<br>E: <a href="mailto:kolkata@holoflex.com" style="color:#ffffff">kolkata@holoflex.com</a><br>P: <a href="tel:+916292300439" style="color:#ffffff">+91 62923 00439</a> · <a href="tel:+913324007810" style="color:#ffffff">033 2400 7810</a><br><strong style="color:#ffffff;display:block;margin-top:12px">Registered Office</strong>CN 2/1, Sector V, Salt Lake, Kolkata 700091, West Bengal, India</div></div>
+    <div><h3 style="font-size:13px;font-weight:600;color:#ffffff;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px">Like Us</h3><div style="display:flex;gap:10px"><a href="https://www.facebook.com/holoflexltd" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;color:#ffffff;font-size:13px;font-weight:600">f</a><a href="https://www.youtube.com/@holoflexltd" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;color:#ffffff;font-size:11px">▶</a><a href="https://in.linkedin.com/company/holoflex-limited---india" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;color:#ffffff;font-size:13px;font-weight:600">in</a></div></div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.12);margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;font-size:12px;color:#8f89c4"><span>© Holoflex Limited. All rights reserved.</span><span>Garment tags · Security labels · Holograms · Made in India</span></div>
+</footer>
+</div>
+</div>
+
+<!-- ===================== MOBILE 375 ===================== -->
+<div style="display:flex;flex-direction:column;gap:12px;position:sticky;top:48px">
+<div style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6b6b80">Mobile · 375 × 812 (scrolls)</div>
+<div data-screen-label="Mobile — 375" style="width:375px;height:812px;position:relative;overflow:hidden;background:#f5f5f7;border-radius:24px;box-shadow:0 8px 40px rgba(28,27,58,0.18);border:1px solid #d4d4de">
+<div style="position:absolute;inset:0;overflow:auto;padding-bottom:150px">
+
+  <!-- M HEADER -->
+  <header style="position:sticky;top:0;z-index:50;background:#ffffff;border-bottom:1px solid #e6e6ec">
+    <div style="height:3px;background:linear-gradient(90deg,#221b5b 0%,#5b1f8a 30%,#d81f26 60%,#ff6a3d 80%,#0f8a7a 100%)"></div>
+    <div style="height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 12px 0 14px">
+      <img src="assets/holoflex-logo.jpg" alt="Holoflex" style="height:44px;mix-blend-mode:multiply">
+      <div style="display:flex;align-items:center;gap:6px">
+        <a href="tel:+916292300439" aria-label="Call" style="width:44px;height:44px;border-radius:50%;background:#eeedf5;display:flex;align-items:center;justify-content:center;color:#221b5b;font-size:17px">☏</a>
+        <a href="https://wa.me/916292300439" aria-label="WhatsApp" style="width:44px;height:44px;border-radius:50%;background:#e6f8ec;display:flex;align-items:center;justify-content:center;color:#128c4a;font-size:12px;font-weight:700">WA</a>
+        <button onClick="{{ toggleMenu }}" aria-label="Menu" style="width:44px;height:44px;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer"><span style="width:20px;height:2px;background:#221b5b"></span><span style="width:20px;height:2px;background:#221b5b"></span><span style="width:20px;height:2px;background:#221b5b"></span></button>
+      </div>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <nav style="border-top:1px solid #e6e6ec;background:#ffffff;display:flex;flex-direction:column;padding:8px 0">
+        <a href="https://www.holoflex.com/" style="padding:12px 20px;font-size:15px;color:#3d3c58">Home</a><a href="https://www.holoflex.com/aboutus.php" style="padding:12px 20px;font-size:15px;color:#3d3c58">About Us</a><a href="https://www.holoflex.com/product.php" style="padding:12px 20px;font-size:15px;color:#3d3c58">Products</a><a href="https://www.holoflex.com/technology.php" style="padding:12px 20px;font-size:15px;color:#3d3c58">Technology</a><a href="#" style="padding:12px 20px;font-size:15px;color:#3d3c58">Solutions ▾</a><a href="https://www.holoflex.com/industry-verticals.php" style="padding:12px 20px;font-size:15px;color:#3d3c58">Industry Verticals</a><a href="https://www.holoflex.com/media.php" style="padding:12px 20px;font-size:15px;color:#3d3c58">Media</a><a href="https://www.holoflex.com/contact.php" style="padding:12px 20px;font-size:15px;color:#3d3c58">Contact Us</a>
+      </nav>
+    </sc-if>
+  </header>
+
+  <!-- M HERO -->
+  <section id="m-quote" style="position:relative;background:#16123f;overflow:hidden">
+    <div style="position:absolute;inset:0"><image-slot id="hero-bg-m" shape="rect" placeholder="Macro photo — plastic tag on garment (mobile crop)"></image-slot></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,18,63,0.94) 0%,rgba(22,18,63,0.86) 100%);pointer-events:none"></div>
+    <div style="position:relative;padding:22px 16px 24px;color:#ffffff;pointer-events:none">
+      <div style="pointer-events:auto">
+        <div style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#c9c4ee;margin-bottom:10px">Holoflex Limited · Kolkata · Manufacturer-direct · 35+ years</div>
+        <h1 style="font-family:Lora,Georgia,serif;font-weight:700;font-size:27px;line-height:1.15;letter-spacing:-0.01em;text-wrap:pretty">Your brand deserves more than a tag.</h1>
+        <h2 style="font-size:15px;font-weight:500;line-height:1.3;color:#ffffff;margin-top:6px">Garment Tags Manufacturer in India</h2>
+        <p style="font-size:12px;line-height:1.45;color:#dcd9f0;margin-top:8px">A garment tag should do more than carry your brand name—it should enhance the product experience. Holoflex Garment Tags combine premium aesthetics, durable construction and smart functionality to give brands a cleaner, more sophisticated and efficient tagging solution.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 16px">
+          <span style="padding:5px 10px;border:1px solid rgba(255,255,255,0.25);border-radius:999px;font-size:11px;font-weight:500">Premium Look &amp; Feel</span>
+          <span style="padding:5px 10px;border:1px solid rgba(255,255,255,0.25);border-radius:999px;font-size:11px;font-weight:500">3-in-1 Smart Tag</span>
+          <span style="padding:5px 10px;border:1px solid rgba(255,255,255,0.25);border-radius:999px;font-size:11px;font-weight:500">Smudge-Free Variable Printing</span>
+        </div>
+      </div>
+      <div style="pointer-events:auto;background:#ffffff;border-radius:8px;padding:18px 16px 16px;color:#1c1b3a;box-shadow:0 16px 40px rgba(0,0,0,0.35)">
+        <sc-if value="{{ isForm }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px"><h2 style="font-size:17px;font-weight:600">Request samples &amp; pricing</h2><span style="font-size:10px;font-weight:500;color:#d81f26;letter-spacing:0.08em;text-transform:uppercase">Free</span></div>
+          <form style="display:flex;flex-direction:column;gap:9px" onSubmit="{{ submitForm }}">
+            <input type="text" placeholder="Name" required style="width:100%;height:46px;padding:0 12px;border:1px solid #d4d4de;border-radius:4px;font-size:15px;background:#fbfbfd">
+            <input type="text" placeholder="Company / Brand" required style="width:100%;height:46px;padding:0 12px;border:1px solid #d4d4de;border-radius:4px;font-size:15px;background:#fbfbfd">
+            <input type="tel" placeholder="Phone (+91)" required style="width:100%;height:46px;padding:0 12px;border:1px solid #d4d4de;border-radius:4px;font-size:15px;background:#fbfbfd">
+            <select required style="width:100%;height:46px;padding:0 10px;border:1px solid #d4d4de;border-radius:4px;font-size:15px;background:#fbfbfd"><option value="">Product interest</option><option>Garment tags — 3-in-1 plastic tag</option><option>Security / hologram garment tags</option><option>Barcode tags and TTR ribbon supply</option><option>Other labels or tags</option></select>
+            <textarea placeholder="Message — quantity, garment type" rows="2" style="width:100%;padding:10px 12px;border:1px solid #d4d4de;border-radius:4px;font-size:15px;background:#fbfbfd;resize:none"></textarea>
+            <button type="submit" style="width:100%;height:50px;border:0;border-radius:4px;background:#d81f26;color:#ffffff;font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 2px 0 #a8151b">Request a Quote</button>
+          </form>
+          <p style="font-size:12px;color:#221b5b;font-weight:500;margin-top:10px;text-align:center">Samples and pricing within 24 hours.</p>
+        </sc-if>
+        <sc-if value="{{ isOtp }}" hint-placeholder-val="{{ false }}">
+          <h2 style="font-size:17px;font-weight:600;margin-bottom:6px">Verify your phone number</h2>
+          <p style="font-size:13px;color:#6b6b80;margin-bottom:14px;line-height:1.45">Code sent to <strong style="color:#1c1b3a">{{ phoneShown }}</strong>.</p>
+          <form style="display:flex;flex-direction:column;gap:9px" onSubmit="{{ submitOtp }}">
+            <input type="text" inputMode="numeric" maxLength="6" placeholder="6-digit OTP" style="width:100%;height:54px;border:1px solid #d4d4de;border-radius:4px;font-size:22px;letter-spacing:0.4em;text-align:center;background:#fbfbfd;font-weight:600">
+            <button type="submit" style="width:100%;height:50px;border:0;border-radius:4px;background:#d81f26;color:#ffffff;font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 2px 0 #a8151b">Verify &amp; Send Enquiry</button>
+          </form>
+          <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:13px"><a href="#m-quote" style="color:#6b6b80" onClick="{{ backToForm }}">Edit details</a><a href="#m-quote" style="font-weight:500">Resend in 0:{{ resendIn }}</a></div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- M TRUST -->
+  <section style="background:#ffffff;border-bottom:1px solid #e6e6ec;padding:16px 16px 18px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f5f5f7;border-radius:6px"><span style="font-family:Lora,Georgia,serif;font-size:24px;font-weight:700;color:#221b5b">35+</span><span style="font-size:11px;line-height:1.3;color:#3d3c58">years manufacturing</span></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f5f5f7;border-radius:6px"><span style="width:30px;height:30px;border-radius:50%;border:2px solid #221b5b;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#221b5b;flex:0 0 auto">ISO</span><span style="font-size:11px;line-height:1.3;color:#3d3c58">ISO / quality certifications</span></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f5f5f7;border-radius:6px"><span style="width:30px;height:30px;border-radius:50%;border:2px solid #221b5b;display:flex;align-items:center;justify-content:center;font-size:12px;color:#221b5b;flex:0 0 auto">◈</span><span style="font-size:11px;line-height:1.3;color:#3d3c58">ASPA / HSSMS member</span></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f5f5f7;border-radius:6px"><span style="width:30px;height:30px;border-radius:50%;border:2px solid #221b5b;display:flex;align-items:center;justify-content:center;font-size:12px;color:#221b5b;flex:0 0 auto">⌂</span><span style="font-size:11px;line-height:1.3;color:#3d3c58">Kolkata facility · Made in India</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px">
+      <sc-for list="{{ logoTiles }}" as="t" hint-placeholder-count="4"><div style="height:40px;border:1px dashed #c9c9d4;border-radius:4px;background:repeating-linear-gradient(135deg,#f3f3f6 0 6px,#ffffff 6px 12px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,Menlo,monospace;font-size:7px;color:#8a8a9c;text-align:center;padding:0 6px">{{ t }}</div></sc-for>
+    </div>
+  </section>
+
+  <!-- M PROBLEM -->
+  <section style="padding:36px 16px 28px">
+    <div style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#d81f26;margin-bottom:8px">The problem</div>
+    <h2 style="font-family:Lora,Georgia,serif;font-size:24px;font-weight:700;line-height:1.15;color:#221b5b">Four items on every garment. None working hard enough.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px">
+      <div style="background:#ffffff;border:1px solid #e6e6ec;border-radius:6px;padding:14px"><div style="font-family:Lora,Georgia,serif;font-size:16px;color:#d81f26;margin-bottom:6px">01</div><h3 style="font-size:13px;font-weight:600;line-height:1.3">Board tags that crease and tear</h3></div>
+      <div style="background:#ffffff;border:1px solid #e6e6ec;border-radius:6px;padding:14px"><div style="font-family:Lora,Georgia,serif;font-size:16px;color:#d81f26;margin-bottom:6px">02</div><h3 style="font-size:13px;font-weight:600;line-height:1.3">A separate barcode tag plus a price label</h3></div>
+      <div style="background:#ffffff;border:1px solid #e6e6ec;border-radius:6px;padding:14px"><div style="font-family:Lora,Georgia,serif;font-size:16px;color:#d81f26;margin-bottom:6px">03</div><h3 style="font-size:13px;font-weight:600;line-height:1.3">Print that smears in transit</h3></div>
+      <div style="background:#ffffff;border:1px solid #e6e6ec;border-radius:6px;padding:14px"><div style="font-family:Lora,Georgia,serif;font-size:16px;color:#d81f26;margin-bottom:6px">04</div><h3 style="font-size:13px;font-weight:600;line-height:1.3">Inconsistent brand presentation on the rack</h3></div>
+    </div>
+  </section>
+
+  <!-- M CORE -->
+  <section style="background:#ffffff;padding:40px 16px;border-top:1px solid #e6e6ec">
+    <div style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#d81f26;margin-bottom:8px">The Holoflex 3-in-1 garment tag</div>
+    <h2 style="font-family:Lora,Georgia,serif;font-size:32px;font-weight:700;line-height:1.1;color:#221b5b">One tag, three jobs.</h2>
+    <p style="font-size:14px;line-height:1.55;color:#4a4964;margin-top:12px">A single non-tearable, recyclable plastic tag replaces the clutter of board tags and labels.</p>
+    <div style="background:#f5f5f7;border-radius:8px;padding:16px;margin:20px 0"><img src="assets/tag-front-back.png" alt="3-in-1 tag front and back" style="width:100%;display:block;mix-blend-mode:multiply"></div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;gap:14px;padding:14px;border:1px solid #e6e6ec;border-radius:6px"><div style="width:30px;height:30px;border-radius:4px;background:#221b5b;color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex:0 0 auto">1</div><div><h3 style="font-size:15px;font-weight:600;margin-bottom:3px">Branding printed on the front</h3><p style="font-size:13px;line-height:1.5;color:#6b6b80">High-resolution print on a clean plastic finish that looks markedly more premium than board.</p></div></div>
+      <div style="display:flex;gap:14px;padding:14px;border:1px solid #e6e6ec;border-radius:6px"><div style="width:30px;height:30px;border-radius:4px;background:#221b5b;color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex:0 0 auto">2</div><div><h3 style="font-size:15px;font-weight:600;margin-bottom:3px">Barcode and price on the back</h3><p style="font-size:13px;line-height:1.5;color:#6b6b80">Style, colour, size, MRP and barcode printed in-house with Thermal Transfer Ribbon (TTR).</p></div></div>
+      <div style="display:flex;gap:14px;padding:14px;border:1px solid #e6e6ec;border-radius:6px"><div style="width:30px;height:30px;border-radius:4px;background:#d81f26;color:#ffffff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex:0 0 auto">3</div><div><h3 style="font-size:15px;font-weight:600;margin-bottom:3px">Ribbon supplied in the package</h3><p style="font-size:13px;line-height:1.5;color:#6b6b80">Matched TTR so variable print resists rubbing and passes tape tests [VERIFY].</p></div></div>
+    </div>
+  </section>
+
+  <!-- M CTA A -->
+  <section style="background:#221b5b;padding:22px 16px;color:#ffffff"><div style="font-family:Lora,Georgia,serif;font-size:19px;font-weight:700;line-height:1.2">See the tag in your hand before you decide.</div><div style="font-size:13px;color:#c9c4ee;margin-top:4px;margin-bottom:14px">Free samples and quotation within 24 hours.</div><a href="#m-quote" style="display:block;text-align:center;background:#d81f26;color:#ffffff;font-size:14px;font-weight:600;padding:13px;border-radius:4px">Get a Quote</a></section>
+
+  <!-- M SECURITY -->
+  <section id="m-security" style="padding:40px 16px">
+    <div style="height:200px;border-radius:8px;overflow:hidden;margin-bottom:18px"><image-slot id="security-img-m" shape="rounded" radius="8" placeholder="Photo — holographic strip on tag"></image-slot></div>
+    <div style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#d81f26;margin-bottom:8px">Security garment tags</div>
+    <h2 style="font-family:Lora,Georgia,serif;font-size:24px;font-weight:700;line-height:1.15;color:#221b5b">Brand protection that improves the look, rather than cluttering it.</h2>
+    <p style="font-size:14px;line-height:1.6;color:#4a4964;margin-top:12px">Holographic and optical (OVD) elements, banknote-style printed security features and tamper-evident construction help authenticate your product and help reduce the risk of copies.</p>
+    <a href="#m-quote" style="display:inline-block;margin-top:16px;color:#221b5b;font-size:14px;font-weight:600;border-bottom:2px solid #d81f26">Ask about security tags →</a>
+  </section>
+
+  <!-- M APPLICATIONS -->
+  <section style="background:#ffffff;padding:36px 16px;border-top:1px solid #e6e6ec">
+    <div style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#d81f26;margin-bottom:8px">Applications</div>
+    <h2 style="font-family:Lora,Georgia,serif;font-size:24px;font-weight:700;line-height:1.15;color:#221b5b;margin-bottom:16px">Created for fashion. At home well beyond it.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <sc-for list="{{ applications }}" as="a" hint-placeholder-count="6"><div style="border:1px solid #e6e6ec;border-radius:6px;overflow:hidden"><div style="height:100px"><image-slot id="m-{{ a.id }}" shape="rect" placeholder="{{ a.title }}"></image-slot></div><div style="padding:10px 12px;font-size:13px;font-weight:600">{{ a.title }}</div></div></sc-for>
+    </div>
+  </section>
+
+  <!-- M WHY -->
+  <section style="padding:36px 16px">
+    <div style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#d81f26;margin-bottom:8px">Why Holoflex</div>
+    <h2 style="font-family:Lora,Georgia,serif;font-size:24px;font-weight:700;color:#221b5b;margin-bottom:16px">A manufacturer, not a reseller.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <sc-for list="{{ whyItems }}" as="w" hint-placeholder-count="8"><div style="background:#ffffff;border:1px solid #e6e6ec;border-radius:6px;padding:14px"><div style="width:22px;height:2px;background:#d81f26;margin-bottom:10px"></div><h3 style="font-size:13px;font-weight:600;line-height:1.3">{{ w.title }}</h3></div></sc-for>
+    </div>
+  </section>
+
+  <!-- M CTA B -->
+  <section style="background:#ffffff;border-top:1px solid #e6e6ec;border-bottom:1px solid #e6e6ec;padding:22px 16px"><div style="font-family:Lora,Georgia,serif;font-size:19px;font-weight:700;color:#221b5b;line-height:1.2">Sourcing for Kolkata, Delhi, Mumbai, Chennai or Hyderabad?</div><div style="font-size:13px;color:#6b6b80;margin:4px 0 14px">We ship tags and ribbon pan-India.</div><div style="display:flex;gap:8px"><a href="tel:+916292300439" style="flex:1;text-align:center;padding:13px;border:1px solid #d4d4de;border-radius:4px;color:#221b5b;font-size:14px;font-weight:600">Call</a><a href="#m-quote" style="flex:1;text-align:center;background:#d81f26;color:#ffffff;font-size:14px;font-weight:600;padding:13px;border-radius:4px">Get a Quote</a></div></section>
+
+  <!-- M FAQ -->
+  <section style="padding:36px 16px">
+    <div style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#d81f26;margin-bottom:8px">FAQ</div>
+    <h2 style="font-family:Lora,Georgia,serif;font-size:24px;font-weight:700;color:#221b5b;margin-bottom:14px">Frequently asked questions</h2>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+        <div style="background:#ffffff;border:1px solid #e6e6ec;border-radius:6px;overflow:hidden">
+          <button onClick="{{ f.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:transparent;border:0;cursor:pointer;text-align:left;font-size:14px;font-weight:600;color:#1c1b3a;line-height:1.35">{{ f.q }}<span style="width:24px;height:24px;border-radius:50%;background:#eeedf5;display:flex;align-items:center;justify-content:center;font-size:15px;color:#221b5b;flex:0 0 auto">{{ f.icon }}</span></button>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="padding:0 16px 16px;font-size:13px;line-height:1.6;color:#4a4964">{{ f.a }}</p></sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- M CLOSING CTA -->
+  <section style="background:#16123f;padding:40px 16px;color:#ffffff">
+    <h2 style="font-family:Lora,Georgia,serif;font-size:26px;font-weight:700;line-height:1.15">Ready to replace three tags with one?</h2>
+    <p style="font-size:14px;line-height:1.55;color:#c9c4ee;margin:12px 0 18px">Samples and a customised quotation within 24 hours.</p>
+    <div style="background:#ffffff;border-radius:8px;padding:16px;color:#1c1b3a">
+      <form style="display:flex;flex-direction:column;gap:9px" onSubmit="{{ submitForm }}">
+        <input type="text" placeholder="Name" required style="width:100%;height:46px;padding:0 12px;border:1px solid #d4d4de;border-radius:4px;font-size:15px;background:#fbfbfd">
+        <input type="text" placeholder="Company / Brand" required style="width:100%;height:46px;padding:0 12px;border:1px solid #d4d4de;border-radius:4px;font-size:15px;background:#fbfbfd">
+        <input type="tel" placeholder="Phone (+91)" required style="width:100%;height:46px;padding:0 12px;border:1px solid #d4d4de;border-radius:4px;font-size:15px;background:#fbfbfd">
+        <select required style="width:100%;height:46px;padding:0 10px;border:1px solid #d4d4de;border-radius:4px;font-size:15px;background:#fbfbfd"><option value="">Product interest</option><option>Garment tags — 3-in-1 plastic tag</option><option>Security / hologram garment tags</option><option>Barcode tags and TTR ribbon supply</option><option>Other labels or tags</option></select>
+        <textarea placeholder="Message" rows="2" style="width:100%;padding:10px 12px;border:1px solid #d4d4de;border-radius:4px;font-size:15px;background:#fbfbfd;resize:none"></textarea>
+        <button type="submit" style="width:100%;height:50px;border:0;border-radius:4px;background:#d81f26;color:#ffffff;font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 2px 0 #a8151b">Request a Quote</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- M FOOTER -->
+  <footer style="background:#0f0c2e;color:#c9c4ee;padding:32px 16px 24px;font-size:13px">
+    <img src="assets/holoflex-logo.jpg" alt="Holoflex" style="height:52px;border-radius:4px;display:block;margin-bottom:20px">
+    <h3 style="font-size:12px;font-weight:600;color:#ffffff;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px">Quick Links</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;margin-bottom:24px"><a href="https://www.holoflex.com/" style="color:#c9c4ee">Home</a><a href="https://www.holoflex.com/blog.php" style="color:#c9c4ee">Blog</a><a href="https://www.holoflex.com/aboutus.php" style="color:#c9c4ee">About Us</a><a href="https://www.holoflex.com/lets-connect.php" style="color:#c9c4ee">Let's Connect</a><a href="https://www.holoflex.com/product.php" style="color:#c9c4ee">Products</a><a href="https://www.holoflex.com/careers.php" style="color:#c9c4ee">Careers</a><a href="https://www.holoflex.com/technology.php" style="color:#c9c4ee">Technology</a><a href="https://www.holoflex.com/disclaimer.php" style="color:#c9c4ee">Disclaimer</a><a href="https://www.holoflex.com/industry-verticals.php" style="color:#c9c4ee">Industry Verticals</a><a href="https://www.holoflex.com/privacy-policy.php" style="color:#c9c4ee">Privacy Policy</a><a href="https://www.holoflex.com/media.php" style="color:#c9c4ee">Media</a><a href="https://www.holoflex.com/terms-conditions.php" style="color:#c9c4ee">Terms &amp; Conditions</a><a href="https://www.holoflex.com/contact.php" style="color:#c9c4ee">Contact Us</a></div>
+    <h3 style="font-size:12px;font-weight:600;color:#ffffff;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px">Contact Details</h3>
+    <p style="line-height:1.6"><strong style="color:#ffffff">Corporate Office</strong><br>92 C/1, Sahapur, Block J, New Alipore, Kolkata 700053, West Bengal, India.<br>E: <a href="mailto:kolkata@holoflex.com" style="color:#ffffff">kolkata@holoflex.com</a><br>P: <a href="tel:+916292300439" style="color:#ffffff">+91 62923 00439</a> · <a href="tel:+913324007810" style="color:#ffffff">033 2400 7810</a></p>
+    <p style="line-height:1.6;margin-top:10px"><strong style="color:#ffffff">Registered Office</strong><br>CN 2/1, Sector V, Salt Lake, Kolkata 700091, West Bengal, India</p>
+    <h3 style="font-size:12px;font-weight:600;color:#ffffff;letter-spacing:0.08em;text-transform:uppercase;margin:24px 0 10px">Like Us</h3>
+    <div style="display:flex;gap:10px"><a href="https://www.facebook.com/holoflexltd" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;color:#ffffff;font-weight:600">f</a><a href="https://www.youtube.com/@holoflexltd" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;color:#ffffff;font-size:11px">▶</a><a href="https://in.linkedin.com/company/holoflex-limited---india" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;color:#ffffff;font-weight:600">in</a></div>
+    <p style="font-size:11px;color:#8f89c4;margin-top:24px">© Holoflex Limited. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- M STICKY BOTTOM: action bar ABOVE cookie banner -->
+<div style="position:absolute;left:0;right:0;bottom:0;z-index:60;display:flex;flex-direction:column">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:8px;padding:10px 12px;background:#ffffff;border-top:1px solid #e6e6ec;box-shadow:0 -6px 20px rgba(28,27,58,0.10)">
+    <a href="tel:+916292300439" style="height:46px;display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid #d4d4de;border-radius:4px;color:#221b5b;font-size:14px;font-weight:600">☏ Call</a>
+    <a href="https://wa.me/916292300439" style="height:46px;display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid #bfe8cc;background:#e6f8ec;border-radius:4px;color:#128c4a;font-size:14px;font-weight:600">WhatsApp</a>
+    <a href="#m-quote" style="height:46px;display:flex;align-items:center;justify-content:center;background:#d81f26;color:#ffffff;border-radius:4px;font-size:14px;font-weight:600;box-shadow:0 2px 0 #a8151b">Get a Quote</a>
+  </div>
+  <sc-if value="{{ showCookie }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#1c1b3a;color:#c9c4ee;padding:10px 12px;display:flex;align-items:center;gap:10px;font-size:11px;line-height:1.4">
+      <span style="flex:1">We use cookies to give you the best possible experience. <a href="#" style="color:#ffffff;text-decoration:underline">Learn more</a></span>
+      <button onClick="{{ dismissCookie }}" style="height:32px;padding:0 12px;border:0;border-radius:4px;background:#ffffff;color:#1c1b3a;font-size:11px;font-weight:600;cursor:pointer">Accept</button>
+      <button onClick="{{ dismissCookie }}" style="height:32px;padding:0 10px;border:1px solid rgba(255,255,255,0.3);border-radius:4px;background:transparent;color:#ffffff;font-size:11px;cursor:pointer">Reject</button>
+    </div>
+  </sc-if>
+</div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;formState&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;form&quot;,&quot;otp&quot;],&quot;default&quot;:&quot;form&quot;,&quot;tsType&quot;:&quot;'form' | 'otp'&quot;,&quot;section&quot;:&quot;Enquiry card&quot;},&quot;showLogoRow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Trust strip&quot;},&quot;showCookieBanner&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mobile&quot;},&quot;mobileMenuOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mobile&quot;}}">
+class Component extends DCLogic {
+  state = { step: 'form', phone: '+91 98XXX XXXXX', resendIn: 30, menuOpen: false, openFaq: 0, cookie: true };
+  renderVals() {
+    const step = this.props.formState ?? this.state.step;
+    const openFaq = this.state.openFaq;
+    const faqData = [
+      { q: 'How does this tag improve the look of my product compared to standard tags?', a: 'Standard paper tags have a tendency to tear, crease and look worn over time. Our tags are constructed from non-tearable plastic materials that are smoother and more durable. This premium touch gives consumers an instant perception of high quality.' },
+      { q: 'Can I really replace my current barcode labels with this?', a: 'Yes. Instead of applying a label to a generic tag, you can print your barcodes and prices directly onto the back of our tag using a TTR printer. This gives a seamless look, where the information appears to be part of the design rather than an addition.' },
+      { q: 'Will the printed information rub off during shipping or handling?', a: 'No. We use specific Thermal Transfer Ribbons (TTR) that are smudge-free. We have tested them extensively — they pass tape tests and resist rubbing, so your pricing and barcodes remain scannable and sharp.' },
+      { q: 'Is the security feature visible or hidden?', a: 'It is designed to be aesthetically pleasing. We incorporate security elements such as OVDs, holograms and printed security features that enhance the visual design rather than making it look like a warning label. It adds a quality finish that doubles as an anti-counterfeit measure.' }
+    ];
+    return {
+      isForm: step === 'form',
+      isOtp: step === 'otp',
+      phoneShown: this.state.phone,
+      resendIn: String(this.state.resendIn).padStart(2, '0'),
+      showLogoRow: this.props.showLogoRow ?? true,
+      showCookie: (this.props.showCookieBanner ?? true) && this.state.cookie,
+      menuOpen: this.props.mobileMenuOpen ?? this.state.menuOpen,
+      logoTiles: Array.from({ length: 4 }, () => '[LOGO — USAGE RIGHTS PENDING]'),
+      applications: [
+        { id: 'app-apparel', title: 'Apparel', note: 'Menswear · womenswear · kids', placeholder: 'Photo — tag on folded shirt / hanging garment' },
+        { id: 'app-footwear', title: 'Footwear', note: 'Shoes · sandals', placeholder: 'Photo — tag on shoe or shoebox' },
+        { id: 'app-umbrellas', title: 'Umbrellas', note: 'Rain · fashion', placeholder: 'Photo — tag on umbrella handle' },
+        { id: 'app-industrial', title: 'Safety gloves & industrial wear', note: 'PPE · workwear', placeholder: 'Photo — tag on safety gloves' },
+        { id: 'app-lifestyle', title: 'Lifestyle & utility products', note: 'Bags · homeware', placeholder: 'Photo — tag on bag / utility product' },
+        { id: 'app-accessories', title: 'Accessories', note: 'Belts · caps · scarves', placeholder: 'Photo — tag on belt or cap' }
+      ],
+      whyItems: [
+        { title: 'Direct From Manufacturer', body: 'Tags, ribbon and security features made in-house — no reseller margin.' },
+        { title: "35+ Years' Experience", body: 'Holography, printing and labelling from our own Kolkata plant.' },
+        { title: 'Trusted by Top Brands', body: 'Apparel and consumer brands across India [VERIFY].' },
+        { title: 'Custom Designs', body: 'Your artwork, size, finish and security features — customised per range.' },
+        { title: 'Bulk Orders Welcome', body: 'Capacity for seasonal volumes with consistent print quality.' },
+        { title: 'Made in India', body: 'Manufactured at our own facility in Kolkata.' },
+        { title: 'Fast Turnaround', body: 'Repeat orders on approved artwork in approximately seven days [PENDING CLIENT CONFIRMATION].' },
+        { title: 'Free Samples & Quote', body: 'Handle the tag before you commit. Pricing within 24 hours.' }
+      ],
+      faqs: faqData.map((f, i) => ({ ...f, open: i === openFaq, icon: i === openFaq ? '−' : '+', toggle: () => this.setState({ openFaq: i === openFaq ? -1 : i }) })),
+      submitForm: (e) => {
+        e.preventDefault();
+        const tel = e.currentTarget.querySelector('input[type=tel]');
+        const v = (tel && tel.value.trim()) || '';
+        this.setState({ step: 'otp', phone: v ? v.replace(/(\d{2})\d{3}(\d{2})(\d{3})$/, '$1XXX $2XXX') : '+91 98XXX XXXXX' });
+      },
+      submitOtp: (e) => { e.preventDefault(); },
+      backToForm: (e) => { e.preventDefault(); this.setState({ step: 'form' }); },
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      dismissCookie: () => this.setState({ cookie: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
