@@ -32,11 +32,11 @@
 /* --------------------------------------------------------------------------
    0. FONTS + TOKENS
    -------------------------------------------------------------------------- */
-@font-face { font-family: "Poppins"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/lp-poppins-400.woff2") format("woff2"); }
-@font-face { font-family: "Poppins"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/lp-poppins-500.woff2") format("woff2"); }
-@font-face { font-family: "Poppins"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/lp-poppins-600.woff2") format("woff2"); }
-@font-face { font-family: "Poppins"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/lp-poppins-700.woff2") format("woff2"); }
-@font-face { font-family: "Lora";    font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/lp-lora-700.woff2")    format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/lp-poppins-400.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/lp-poppins-500.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/lp-poppins-600.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/lp-poppins-700.woff2") format("woff2"); }
+@font-face { font-family: "Lora";    font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/lp-lora-700.woff2")    format("woff2"); }
 
 :root {
   /* Brand */
@@ -365,7 +365,7 @@ strong { font-weight: 600; }
 .lp-hero { position: relative; background: var(--lp-navy-deep); overflow: hidden; color: var(--lp-white); }
 
 /* Optional background photograph hook. When a compressed photo is supplied,
-   add e.g.  background-image: url("/images/lp-hero.jpg");  here. The overlay
+   add e.g.  background-image: url("../images/lp-hero.jpg");  here. The overlay
    below darkens it to the design's gradient so the text stays legible. */
 .lp-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
 .lp-hero__overlay {

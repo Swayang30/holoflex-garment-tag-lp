@@ -216,7 +216,7 @@ function testDoPost() {
     message: 'Test submission from the Apps Script editor.',
     ip: '127.0.0.1',
     user_agent: 'Apps Script test',
-    page: 'https://www.holoflex.com/garment-tags-lp.html',
+    page: 'https://www.holoflex.com/garment_tags/',
     token: SHARED_SECRET
   };
   var out = doPost({ postData: { contents: JSON.stringify(sample) } });

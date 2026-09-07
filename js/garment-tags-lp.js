@@ -3,7 +3,7 @@
    /js/garment-tags-lp.js
 
    Vanilla JS, no dependencies. Loaded with `defer` on both
-   /garment-tags-lp.html and /thank-you-lp.html. Sections that need elements
+   /garment_tags/ (index.html) and thank-you-lp.html. Sections that need elements
    the current page does not have simply do nothing.
 
    Contents
@@ -36,8 +36,8 @@
 (function () {
   'use strict';
 
-  var ENDPOINT = '/submit-enquiry.php';
-  var THANK_YOU_URL = '/thank-you-lp.html';
+  var ENDPOINT = 'submit-enquiry.php';       // relative: the page lives in a sub-folder (/garment_tags/)
+  var THANK_YOU_URL = 'thank-you-lp.html';
   var PAGE_ID = 'garment-tags';             // must match LP_PAGE_ID in submit-enquiry.php
   var TOKEN_KEY = 'lp_lead_token';          // sessionStorage key for the single-use lead token
   var COOKIE_KEY = 'lp_cookie_consent';

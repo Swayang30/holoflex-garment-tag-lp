@@ -42,6 +42,9 @@ define('LP_FROM_NAME',  'Holoflex Website');
  */
 define('LP_PAGE_ID', 'garment-tags');
 
+/** Public URL of this landing page, recorded with each lead (CSV, Sheet, email). */
+define('LP_PAGE_URL', 'https://www.holoflex.com/garment_tags/');
+
 /** Subject line prefix on lead emails. */
 define('LP_SUBJECT', 'New garment tag enquiry');
 
@@ -467,7 +470,6 @@ try {
 
     $timestamp = date('Y-m-d H:i:s');
     $userAgent = lp_clean((string) ($_SERVER['HTTP_USER_AGENT'] ?? ''), 255);
-    $referer   = lp_clean((string) ($_SERVER['HTTP_REFERER'] ?? ''), 255);
 
     // --- 1. CSV first: this is the system of record ----------------------
     $csvPath = $dir . DIRECTORY_SEPARATOR . LP_CSV_FILE;
@@ -495,7 +497,7 @@ try {
         lp_csv_safe($message),
         $ip,
         lp_csv_safe($userAgent),
-        lp_csv_safe($referer),
+        LP_PAGE_URL,
     ], ',', '"', '');
     fflush($fh);
     flock($fh, LOCK_UN);
@@ -519,7 +521,7 @@ try {
         'message'       => $message,
         'ip'            => $ip,
         'user_agent'    => $userAgent,
-        'page'          => $referer,
+        'page'          => LP_PAGE_URL,
     ];
     if (LP_WEBHOOK_SECRET !== '') {
         $payload['token'] = LP_WEBHOOK_SECRET;
@@ -545,7 +547,7 @@ try {
         'Form:      ' . $formLoc,
         'Submitted: ' . $timestamp,
         'IP:        ' . $ip,
-        'Page:      ' . ($referer !== '' ? $referer : '(unknown)'),
+        'Page:      ' . LP_PAGE_URL,
         'Page ID:   ' . LP_PAGE_ID,
     ];
     $body = implode("\r\n", $bodyLines);
