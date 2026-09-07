@@ -298,7 +298,7 @@ strong { font-weight: 600; }
   padding-left: 14px; padding-right: 12px;
 }
 .lp-header__logo { display: flex; align-items: center; flex: 0 0 auto; }
-.lp-header__logo img { height: 44px; width: auto; mix-blend-mode: multiply; }
+.lp-header__logo img { height: 48px; width: auto; }
 
 .lp-header__actions { display: flex; align-items: center; gap: 6px; flex: 0 0 auto; }
 .lp-header__phone { display: none; }
@@ -338,7 +338,7 @@ strong { font-weight: 600; }
 /* Tablet: show phone number + quote button; keep hamburger */
 @media (min-width: 768px) {
   .lp-header__bar { height: 76px; gap: 24px; padding-left: var(--lp-gutter); padding-right: var(--lp-gutter); }
-  .lp-header__logo img { height: 58px; }
+  .lp-header__logo img { height: 64px; }
   .lp-header__actions { gap: 18px; }
   .lp-header__iconbtn { display: none; }
   .lp-header__phone { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: var(--lp-navy); white-space: nowrap; }
@@ -764,7 +764,7 @@ strong { font-weight: 600; }
 .lp-footer { background: var(--lp-navy-footer); color: var(--lp-lavender); font-size: 13px; }
 .lp-footer > .lp-container { padding-top: 32px; padding-bottom: 24px; }
 .lp-footer__grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-.lp-footer__logo { height: 52px; width: auto; border-radius: var(--lp-radius); }
+.lp-footer__logo { height: 64px; width: auto; }
 .lp-footer__brand p { margin-top: 16px; line-height: 1.55; }
 .lp-footer__heading { font-size: 12px; font-weight: 600; color: var(--lp-white); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
 .lp-footer__linkcols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
@@ -791,7 +791,7 @@ strong { font-weight: 600; }
 @media (min-width: 768px) {
   .lp-footer > .lp-container { padding-top: 48px; padding-bottom: 28px; }
   .lp-footer__grid { grid-template-columns: 1.2fr 2fr; gap: 40px; }
-  .lp-footer__logo { height: 64px; }
+  .lp-footer__logo { height: 80px; }
   .lp-footer__heading { font-size: 13px; margin-bottom: 16px; }
   .lp-footer__linkcols { gap: 0 40px; }
   .lp-footer__linkcols ul { gap: 9px; font-size: 14px; }
