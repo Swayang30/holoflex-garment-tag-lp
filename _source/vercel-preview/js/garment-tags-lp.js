@@ -16,6 +16,13 @@
      7. Fixed bottom stack: keyboard-aware action bar, cookie banner, body offset
      8. Thank-you page: single-use token -> conversion event
 
+   Campaign capture: gclid and utm_source/medium/campaign/term/content are read
+   from the query string on load, kept in sessionStorage ("lp_campaign") so
+   they survive in-page navigation, and posted as hidden fields with every
+   enquiry. They let a lead in the Sheet be tied back to the campaign, ad
+   group and keyword (Google Ads offline conversion import needs the gclid).
+   Organic and direct visits simply send them empty.
+
    GTM dataLayer events pushed by this file:
      enquiry_form_submit     THANK-YOU PAGE ONLY. { page_id: "garment-tags",
                              form_location: "hero" | "footer",
@@ -41,6 +48,8 @@
   var PAGE_ID = 'garment-tags';             // must match LP_PAGE_ID in submit-enquiry.php
   var TOKEN_KEY = 'lp_lead_token';          // sessionStorage key for the single-use lead token
   var COOKIE_KEY = 'lp_cookie_consent';
+  var CAMPAIGN_KEY = 'lp_campaign';          // sessionStorage key for gclid + utm_* captured on landing
+  var CAMPAIGN_FIELDS = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
   var REQUEST_TIMEOUT_MS = 40000;           // > worst-case server path (5 s webhook + ~21 s mail hang)
   var PAGE_LOADED_AT = Date.now();
   var IS_THANK_YOU = document.body.getAttribute('data-page') === 'thank-you';
@@ -58,6 +67,47 @@
       }
     }
     try { window.dataLayer.push(payload); } catch (e) { /* never block the UI on analytics */ }
+  }
+
+  /* ------------------------------------------------------------------------
+     1b. Campaign parameters: gclid + utm_* from the URL -> sessionStorage
+     ------------------------------------------------------------------------ */
+  function readQueryParams() {
+    var out = {};
+    var query = String(window.location.search || '').replace(/^\?/, '');
+    if (!query) { return out; }
+    var pairs = query.split('&');
+    for (var i = 0; i < pairs.length; i++) {
+      var eq = pairs[i].indexOf('=');
+      var key = eq === -1 ? pairs[i] : pairs[i].slice(0, eq);
+      var val = eq === -1 ? '' : pairs[i].slice(eq + 1);
+      try { key = decodeURIComponent(key.replace(/\+/g, ' ')); } catch (e) { continue; }
+      try { val = decodeURIComponent(val.replace(/\+/g, ' ')); } catch (e) { val = ''; }
+      if (CAMPAIGN_FIELDS.indexOf(key) !== -1 && val) { out[key] = val.slice(0, 200); }
+    }
+    return out;
+  }
+
+  function captureCampaign() {
+    var stored = {};
+    try { stored = JSON.parse(window.sessionStorage.getItem(CAMPAIGN_KEY) || '{}') || {}; } catch (e) { stored = {}; }
+    var fresh = readQueryParams();
+    var found = false;
+    for (var k in fresh) { if (Object.prototype.hasOwnProperty.call(fresh, k)) { stored[k] = fresh[k]; found = true; } }
+    if (found) {
+      try { window.sessionStorage.setItem(CAMPAIGN_KEY, JSON.stringify(stored)); } catch (e) { /* storage blocked: fields still filled from memory */ }
+    }
+    return stored;
+  }
+
+  var CAMPAIGN = captureCampaign();
+
+  /** Copy the captured parameters into a form's hidden fields (empty when none). */
+  function fillCampaignFields(form) {
+    for (var i = 0; i < CAMPAIGN_FIELDS.length; i++) {
+      var field = form.querySelector('input[name="' + CAMPAIGN_FIELDS[i] + '"]');
+      if (field) { field.value = CAMPAIGN[CAMPAIGN_FIELDS[i]] || ''; }
+    }
   }
 
   function locationOf(el) {
@@ -295,6 +345,7 @@
     var elapsedField = form.querySelector('input[name="elapsed"]');
     if (elapsedField) { elapsedField.value = String(Date.now() - PAGE_LOADED_AT); }
 
+    fillCampaignFields(form);
     var body = new FormData(form);
     var phoneDigits = normalisePhone(body.get('phone') || '');
     body.set('phone', phoneDigits);

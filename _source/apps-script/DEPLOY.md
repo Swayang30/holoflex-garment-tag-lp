@@ -76,6 +76,13 @@ URL stays the same. (Saving the file alone does not update the live web app.)
 
 ## Behaviour notes
 
+- Columns C–H (GCLID, UTM source/medium/campaign/term/content) are captured by
+  the landing page from its URL and posted with the lead. They are blank for
+  organic and direct visits. For Google Ads offline conversion import, export
+  GCLID plus Timestamp for the leads that qualified.
+- Adding columns later is safe: the script inserts any header it is missing in
+  place, so a sheet created by an older version keeps its rows aligned.
+
 - The PHP caps the webhook round-trip at 5 seconds and follows the 302 that
   Apps Script returns. A failure is written to `/home/holoflex/lp-data/lp-errors.log`
   and the visitor still gets success, because the CSV was already written.

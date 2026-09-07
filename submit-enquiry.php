@@ -416,6 +416,22 @@ try {
     $message  = lp_clean((string) ($_POST['message'] ?? ''), 2000, true);
     $formLoc  = lp_clean((string) ($_POST['form_location'] ?? ''), 20);
 
+    // Campaign attribution, captured client-side from the landing URL and
+    // posted as hidden fields. All optional: organic and direct visits send
+    // them empty. Kept verbatim (capped) so the Sheet can be matched to
+    // Google Ads for offline conversion import.
+    $campaign = [];
+    foreach (['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'] as $key) {
+        $campaign[$key] = lp_clean((string) ($_POST[$key] ?? ''), 200);
+    }
+    $campaignParts = [];
+    foreach ($campaign as $key => $value) {
+        if ($value !== '') {
+            $campaignParts[] = $key . '=' . $value;
+        }
+    }
+    $campaignLine = $campaignParts !== [] ? implode(', ', $campaignParts) : '(none — organic or direct visit)';
+
     // --- Validate ---------------------------------------------------------
     if (mb_strlen($name) < 2) {
         lp_respond(false, 'Please enter your name.', 422);
@@ -483,11 +499,17 @@ try {
         lp_respond(false, 'We could not save your enquiry. Please call or WhatsApp +91 62923 00439.', 500);
     }
     if ($isNew) {
-        fputcsv($fh, ['timestamp', 'page_id', 'form', 'name', 'company', 'phone', 'email', 'interest', 'message', 'ip', 'user_agent', 'page'], ',', '"', '');
+        fputcsv($fh, ['timestamp', 'page_id', 'gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'form', 'name', 'company', 'phone', 'email', 'interest', 'message', 'ip', 'user_agent', 'page'], ',', '"', '');
     }
     $written = fputcsv($fh, [
         $timestamp,
         LP_PAGE_ID,
+        lp_csv_safe($campaign['gclid']),
+        lp_csv_safe($campaign['utm_source']),
+        lp_csv_safe($campaign['utm_medium']),
+        lp_csv_safe($campaign['utm_campaign']),
+        lp_csv_safe($campaign['utm_term']),
+        lp_csv_safe($campaign['utm_content']),
         $formLoc,
         lp_csv_safe($name),
         lp_csv_safe($company),
@@ -512,6 +534,12 @@ try {
     $payload = [
         'timestamp'     => $timestamp,
         'page_id'       => LP_PAGE_ID,
+        'gclid'         => $campaign['gclid'],
+        'utm_source'    => $campaign['utm_source'],
+        'utm_medium'    => $campaign['utm_medium'],
+        'utm_campaign'  => $campaign['utm_campaign'],
+        'utm_term'      => $campaign['utm_term'],
+        'utm_content'   => $campaign['utm_content'],
         'form_location' => $formLoc,
         'name'          => $name,
         'company'       => $company,
@@ -549,6 +577,7 @@ try {
         'IP:        ' . $ip,
         'Page:      ' . LP_PAGE_URL,
         'Page ID:   ' . LP_PAGE_ID,
+        'Campaign:  ' . $campaignLine,
     ];
     $body = implode("\r\n", $bodyLines);
 

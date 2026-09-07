@@ -21,7 +21,7 @@ var SHEET_NAME = 'Leads';
 
 /** Must match LP_WEBHOOK_SECRET in submit-enquiry.php.
  *  Leave blank on both sides to disable the check. */
-var SHARED_SECRET = '';
+var SHARED_SECRET = 'XOqRmzY9jICpcA48ZnUGaThgK0x6ikrEeWLvyu21F3HPSBN5';
 
 /** Human-readable names for the page_id each landing page sends. An id not
  *  listed here is still accepted: it is stored and shown verbatim. */
@@ -34,9 +34,15 @@ var PAGE_NAMES = {
 /* ================== END CONFIGURATION ==================== */
 
 var HEADERS = [
-  'Timestamp', 'Page ID', 'Form', 'Name', 'Company / Brand', 'Phone', 'Email',
+  'Timestamp', 'Page ID',
+  'GCLID', 'UTM source', 'UTM medium', 'UTM campaign', 'UTM term', 'UTM content',
+  'Form', 'Name', 'Company / Brand', 'Phone', 'Email',
   'Product interest', 'Message', 'IP', 'User agent', 'Page'
 ];
+
+/** Payload keys for the campaign columns, in HEADERS order. Absent or empty
+ *  values (organic / direct visits) are written as blank cells. */
+var CAMPAIGN_KEYS = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
 
 /**
  * Entry point for the PHP webhook (HTTP POST, application/json).
@@ -54,6 +60,12 @@ function doPost(e) {
     var row = [
       str_(data.timestamp) || Utilities.formatDate(new Date(), 'Asia/Kolkata', 'yyyy-MM-dd HH:mm:ss'),
       pageId_(data),
+      str_(data.gclid),
+      str_(data.utm_source),
+      str_(data.utm_medium),
+      str_(data.utm_campaign),
+      str_(data.utm_term),
+      str_(data.utm_content),
       str_(data.form_location),
       str_(data.name),
       str_(data.company),
@@ -140,16 +152,31 @@ function getSheet_() {
     sheet.appendRow(HEADERS);
     sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
     sheet.setFrozenRows(1);
-  } else if (sheet.getRange(1, 2).getValue() !== 'Page ID') {
-    // Sheet created by the earlier single-page script: add the column in place
-    // so existing rows keep their alignment and new rows land correctly.
-    sheet.insertColumnBefore(2);
-    sheet.getRange(1, 2).setValue('Page ID').setFontWeight('bold');
-    if (sheet.getLastRow() > 1) {
-      sheet.getRange(2, 2, sheet.getLastRow() - 1, 1).setValue('garment-tags');
-    }
+  } else {
+    ensureHeaders_(sheet);
   }
   return sheet;
+}
+
+/**
+ * Bring an existing sheet's header row up to date with HEADERS by inserting
+ * any missing column in place, so rows written by an earlier version of this
+ * script keep their alignment and new rows land in the right columns.
+ */
+function ensureHeaders_(sheet) {
+  var width = Math.max(sheet.getLastColumn(), 1);
+  var row = sheet.getRange(1, 1, 1, width).getValues()[0];
+  var dataRows = sheet.getLastRow() - 1;
+  for (var i = 0; i < HEADERS.length; i++) {
+    if (row[i] === HEADERS[i]) { continue; }
+    if (row.indexOf(HEADERS[i]) !== -1) { continue; } // present elsewhere: leave the order alone
+    sheet.insertColumnBefore(i + 1);
+    sheet.getRange(1, i + 1).setValue(HEADERS[i]).setFontWeight('bold');
+    if (HEADERS[i] === 'Page ID' && dataRows > 0) {
+      sheet.getRange(2, i + 1, dataRows, 1).setValue('garment-tags'); // rows from the single-page era
+    }
+    row.splice(i, 0, HEADERS[i]);
+  }
 }
 
 function sendNotification_(data, sheet) {
@@ -173,6 +200,7 @@ function sendNotification_(data, sheet) {
     '',
     '---',
     'Page ID:   ' + pageId_(data),
+    'Campaign:  ' + campaignLine_(data),
     'Form:      ' + form,
     'Submitted: ' + str_(data.timestamp),
     'IP:        ' + str_(data.ip),
@@ -193,6 +221,16 @@ function sendNotification_(data, sheet) {
   );
 }
 
+/** "gclid=…, utm_source=…" for the email, or a note when nothing was captured. */
+function campaignLine_(data) {
+  var parts = [];
+  for (var i = 0; i < CAMPAIGN_KEYS.length; i++) {
+    var v = str_(data[CAMPAIGN_KEYS[i]]);
+    if (v) { parts.push(CAMPAIGN_KEYS[i] + '=' + v); }
+  }
+  return parts.length ? parts.join(', ') : '(none — organic or direct visit)';
+}
+
 function respond_(obj) {
   return ContentService
     .createTextOutput(JSON.stringify(obj))
@@ -207,6 +245,12 @@ function testDoPost() {
   var sample = {
     timestamp: Utilities.formatDate(new Date(), 'Asia/Kolkata', 'yyyy-MM-dd HH:mm:ss'),
     page_id: 'garment-tags',
+    gclid: 'TeSt-GcLiD-123',
+    utm_source: 'google',
+    utm_medium: 'cpc',
+    utm_campaign: 'garment-tags-search',
+    utm_term: 'garment tag manufacturer',
+    utm_content: '',
     form_location: 'hero',
     name: 'Test Lead',
     company: 'Test Apparel Co',
