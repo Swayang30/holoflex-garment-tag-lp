@@ -5,11 +5,38 @@ Google Sheet and emails a notification. This runs in addition to the CSV on the
 server and the PHP `mail()` call, so a lead is delivered even if the host's mail
 is unreliable.
 
+## One deployment for all landing pages
+
+This single script and Sheet serve **all three** Holoflex landing pages:
+Garment Tags, Self-Adhesive Labels and Holograms. Do not create a second
+`Code.gs` or a second Sheet per page.
+
+Each page's `submit-enquiry.php` sends a `page_id` (its `LP_PAGE_ID` constant),
+which the script writes to the **Page ID** column (column B, next to the
+timestamp) and uses in the email subject, e.g.
+`New Garment Tags enquiry — Acme Apparel (hero form)`.
+
+To connect a new landing page, its `submit-enquiry.php` needs only:
+
+```php
+define('LP_PAGE_ID',        'self-adhesive-labels');   // or 'holograms'
+define('LP_WEBHOOK_URL',    '…the SAME web-app URL as the other pages…');
+define('LP_WEBHOOK_SECRET', '…the SAME value as SHARED_SECRET…');
+```
+
+Nothing changes in this script. The ids it knows by name are listed in
+`PAGE_NAMES` in `Code.gs`; an id that is missing or not listed is still accepted
+(stored as `unknown` or shown verbatim), so a mismatch never loses a lead. If a
+new page gets a new slug, add it to `PAGE_NAMES` and redeploy a new version so
+the email names the product.
+
 ## Deploy
 
 1. **Create the Sheet.** In the Google account that should own the leads, create
-   a new Google Sheet, e.g. "Holoflex — Garment Tag Leads". Leave it empty; the
+   a new Google Sheet, e.g. "Holoflex — Landing Page Leads". Leave it empty; the
    script creates a `Leads` tab with a bold, frozen header row on the first lead.
+   (A Sheet created by the earlier garment-tags-only script keeps working: the
+   script inserts the Page ID column on its next run.)
 
 2. **Add the script.** In the Sheet: **Extensions → Apps Script**. Delete the
    default contents of `Code.gs`, paste in this folder's `Code.gs`, and save.
@@ -32,13 +59,14 @@ is unreliable.
    Click **Deploy** and copy the **Web app URL**
    (`https://script.google.com/macros/s/AKfycb…/exec`).
 
-6. **Point the PHP at it.** In `submit-enquiry.php` set:
+6. **Point the PHP at it.** In each landing page's `submit-enquiry.php` set:
    ```php
+   define('LP_PAGE_ID', 'garment-tags');   // this page's slug
    define('LP_WEBHOOK_URL', 'https://script.google.com/macros/s/AKfycb…/exec');
    define('LP_WEBHOOK_SECRET', '…same value as SHARED_SECRET…');
    ```
    Upload the file. Submit a test enquiry on the live page and confirm the row
-   appears in the Sheet.
+   appears in the Sheet with the right Page ID.
 
 ## Updating the script later
 

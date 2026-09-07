@@ -17,8 +17,11 @@
      8. Thank-you page: single-use token -> conversion event
 
    GTM dataLayer events pushed by this file:
-     enquiry_form_submit     THANK-YOU PAGE ONLY. { form_location: "hero" |
-                             "footer", user_data: { phone_number, email? } }
+     enquiry_form_submit     THANK-YOU PAGE ONLY. { page_id: "garment-tags",
+                             form_location: "hero" | "footer",
+                             user_data: { phone_number, email? } }
+                             page_id identifies the landing page so GTM and
+                             Google Ads can report conversions per page.
                              Fired once per lead from the single-use
                              sessionStorage token written before the redirect.
                              A refresh, bookmark or direct visit pushes nothing.
@@ -35,6 +38,7 @@
 
   var ENDPOINT = '/submit-enquiry.php';
   var THANK_YOU_URL = '/thank-you-lp.html';
+  var PAGE_ID = 'garment-tags';             // must match LP_PAGE_ID in submit-enquiry.php
   var TOKEN_KEY = 'lp_lead_token';          // sessionStorage key for the single-use lead token
   var COOKIE_KEY = 'lp_cookie_consent';
   var REQUEST_TIMEOUT_MS = 40000;           // > worst-case server path (5 s webhook + ~21 s mail hang)
@@ -273,7 +277,7 @@
    * Nothing is pushed to the dataLayer here.
    */
   function redirectToThankYou(location, userData) {
-    var token = { form_location: location, user_data: userData, issued: Date.now() };
+    var token = { page_id: PAGE_ID, form_location: location, user_data: userData, issued: Date.now() };
     try {
       window.sessionStorage.setItem(TOKEN_KEY, JSON.stringify(token));
     } catch (e) {
@@ -432,7 +436,10 @@
       var lead = null;
       try { lead = JSON.parse(raw); } catch (e) { lead = null; }
       if (lead && (lead.form_location === 'hero' || lead.form_location === 'footer')) {
-        var params = { form_location: lead.form_location };
+        var params = {
+          page_id: (typeof lead.page_id === 'string' && lead.page_id) ? lead.page_id : 'unknown',
+          form_location: lead.form_location
+        };
         if (lead.user_data && typeof lead.user_data === 'object') { params.user_data = lead.user_data; }
         track('enquiry_form_submit', params);
       }

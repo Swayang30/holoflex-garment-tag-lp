@@ -26,18 +26,21 @@ declare(strict_types=1);
    CONFIGURATION — edit these
    ========================================================================== */
 
-/**
- * Where the lead emails go. Comma-separate for more than one recipient.
- *
- * PROVISIONAL — kolkata@holoflex.com is a placeholder set during the build.
- * Confirm the sales inbox with Holoflex before launch and update this value.
- */
-define('LP_RECIPIENT_EMAIL', 'kolkata@holoflex.com');
+/** Where the lead emails go. Comma-separate for more than one recipient. */
+define('LP_RECIPIENT_EMAIL', 'holoflex@gmail.com, plandleadtest@gmail.com');
 
 /** The From address on lead emails. Should be a mailbox on the sending domain
  *  so SPF/DMARC pass. Reply-To is set to the enquirer's email when provided. */
 define('LP_FROM_EMAIL', 'no-reply@holoflex.com');
 define('LP_FROM_NAME',  'Holoflex Website');
+
+/**
+ * Identifies this landing page. All Holoflex landing pages share one Apps
+ * Script deployment and one Google Sheet; this value is what tells the leads
+ * apart in the CSV, the Sheet and the notification email. Use a short slug:
+ * "garment-tags" | "self-adhesive-labels" | "holograms".
+ */
+define('LP_PAGE_ID', 'garment-tags');
 
 /** Subject line prefix on lead emails. */
 define('LP_SUBJECT', 'New garment tag enquiry');
@@ -48,12 +51,12 @@ define('LP_SUBJECT', 'New garment tag enquiry');
  * webhook entirely; the endpoint works with or without it.
  * Format: https://script.google.com/macros/s/AKfycb.../exec
  */
-define('LP_WEBHOOK_URL', '');
+define('LP_WEBHOOK_URL', 'https://script.google.com/macros/s/AKfycbwTWHLJP9Avz6X3RCYp2J8cMABY-nyi11R1JDuGGvZycvSh4VBk5rMmIZsN02UrI1L2/exec');
 
 /** Optional shared secret sent as "token" in the webhook payload. Set the same
  *  value in SHARED_SECRET in Code.gs so the script ignores posts from anyone
  *  else. Leave empty to disable the check on both sides. */
-define('LP_WEBHOOK_SECRET', '');
+define('LP_WEBHOOK_SECRET', 'XOqRmzY9jICpcA48ZnUGaThgK0x6ikrEeWLvyu21F3HPSBN5');
 
 /** Hard cap on the webhook round-trip, in seconds. */
 define('LP_WEBHOOK_TIMEOUT', 5);
@@ -478,10 +481,11 @@ try {
         lp_respond(false, 'We could not save your enquiry. Please call or WhatsApp +91 62923 00439.', 500);
     }
     if ($isNew) {
-        fputcsv($fh, ['timestamp', 'form', 'name', 'company', 'phone', 'email', 'interest', 'message', 'ip', 'user_agent', 'page'], ',', '"', '');
+        fputcsv($fh, ['timestamp', 'page_id', 'form', 'name', 'company', 'phone', 'email', 'interest', 'message', 'ip', 'user_agent', 'page'], ',', '"', '');
     }
     $written = fputcsv($fh, [
         $timestamp,
+        LP_PAGE_ID,
         $formLoc,
         lp_csv_safe($name),
         lp_csv_safe($company),
@@ -505,6 +509,7 @@ try {
     // --- 2. Webhook to Google Sheets (best effort, 5 s cap) ----------------
     $payload = [
         'timestamp'     => $timestamp,
+        'page_id'       => LP_PAGE_ID,
         'form_location' => $formLoc,
         'name'          => $name,
         'company'       => $company,
@@ -541,6 +546,7 @@ try {
         'Submitted: ' . $timestamp,
         'IP:        ' . $ip,
         'Page:      ' . ($referer !== '' ? $referer : '(unknown)'),
+        'Page ID:   ' . LP_PAGE_ID,
     ];
     $body = implode("\r\n", $bodyLines);
 
