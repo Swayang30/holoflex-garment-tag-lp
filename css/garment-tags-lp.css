@@ -764,7 +764,7 @@ strong { font-weight: 600; }
 .lp-footer { background: var(--lp-navy-footer); color: var(--lp-lavender); font-size: 13px; }
 .lp-footer > .lp-container { padding-top: 32px; padding-bottom: 24px; }
 .lp-footer__grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-.lp-footer__logo { height: 64px; width: auto; }
+.lp-footer__logo { height: 64px; width: auto; border-radius: var(--lp-radius); }
 .lp-footer__brand p { margin-top: 16px; line-height: 1.55; }
 .lp-footer__heading { font-size: 12px; font-weight: 600; color: var(--lp-white); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
 .lp-footer__linkcols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
