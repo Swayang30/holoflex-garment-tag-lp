@@ -80,8 +80,15 @@ URL stays the same. (Saving the file alone does not update the live web app.)
   the landing page from its URL and posted with the lead. They are blank for
   organic and direct visits. For Google Ads offline conversion import, export
   GCLID plus Timestamp for the leads that qualified.
+- **City** (optional on the forms, added 2026-09-08) is column L, right after
+  Company / Brand. Blank when the visitor left it empty.
 - Adding columns later is safe: the script inserts any header it is missing in
   place, so a sheet created by an older version keeps its rows aligned.
+- The notification email is HTML: two bordered label/value tables (the lead,
+  then a "Submission details" block) with a plain-text part for clients that
+  do not render HTML. Empty fields show as "—". Email values are taken
+  without the Sheets formula guard (the leading `'` on `+91 ...`), so the
+  phone number is tappable; the guard still applies to every sheet cell.
 
 - The PHP caps the webhook round-trip at 5 seconds and follows the 302 that
   Apps Script returns. A failure is written to `/home/holoflex/lp-data/lp-errors.log`

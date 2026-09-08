@@ -261,6 +261,10 @@
       if (v && !EMAIL_RE.test(v)) { return 'Please enter a valid email address, or leave this blank.'; }
       return '';
     },
+    city: function (v) {                                        // optional
+      if (v.length > 80) { return 'Please keep the city under 80 characters.'; }
+      return '';
+    },
     interest: function (v) {
       if (!v) { return 'Please choose a product interest.'; }
       return '';

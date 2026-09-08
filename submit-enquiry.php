@@ -412,6 +412,7 @@ try {
     $company  = lp_clean((string) ($_POST['company'] ?? ''), 120);
     $phoneRaw = lp_clean((string) ($_POST['phone'] ?? ''), 20);
     $email    = lp_clean((string) ($_POST['email'] ?? ''), 150);
+    $city     = lp_clean((string) ($_POST['city'] ?? ''), 80);     // optional, free text
     $interest = lp_clean((string) ($_POST['interest'] ?? ''), 80);
     $message  = lp_clean((string) ($_POST['message'] ?? ''), 2000, true);
     $formLoc  = lp_clean((string) ($_POST['form_location'] ?? ''), 20);
@@ -499,7 +500,7 @@ try {
         lp_respond(false, 'We could not save your enquiry. Please call or WhatsApp +91 62923 00439.', 500);
     }
     if ($isNew) {
-        fputcsv($fh, ['timestamp', 'page_id', 'gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'form', 'name', 'company', 'phone', 'email', 'interest', 'message', 'ip', 'user_agent', 'page'], ',', '"', '');
+        fputcsv($fh, ['timestamp', 'page_id', 'gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'form', 'name', 'company', 'city', 'phone', 'email', 'interest', 'message', 'ip', 'user_agent', 'page'], ',', '"', '');
     }
     $written = fputcsv($fh, [
         $timestamp,
@@ -513,6 +514,7 @@ try {
         $formLoc,
         lp_csv_safe($name),
         lp_csv_safe($company),
+        lp_csv_safe($city),
         $phoneCsv,
         lp_csv_safe($email),
         lp_csv_safe($interest),
@@ -543,6 +545,7 @@ try {
         'form_location' => $formLoc,
         'name'          => $name,
         'company'       => $company,
+        'city'          => $city,
         'phone'         => $phone,
         'email'         => $email,
         'interest'      => $interest,
@@ -567,6 +570,7 @@ try {
         'Company / Brand:  ' . $company,
         'Phone:            ' . $phone,
         'Email:            ' . ($email !== '' ? $email : '(not provided)'),
+        'City:             ' . ($city !== '' ? $city : '(not provided)'),
         'Product interest: ' . $interest,
         'Message:',
         $message !== '' ? $message : '(none)',
